@@ -24,3 +24,6 @@ Run server in watch-mode by running `npm run watch`. This will compile typescrip
 * Add authentication? 
 * Deployment management
 * Maybe some hooks for committing and pushing to master
+
+## Acknowledgments
+Much inspired by [this] boilerplate (https://nodejs.org/en/download/)
