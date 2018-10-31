@@ -1,7 +1,6 @@
  import express, { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import { MONGODB_URI } from './util/secrets';
-import path from 'path';
 import bodyParser from 'body-parser';
 import indexRoute from './routes';
 // Create express server
@@ -11,9 +10,9 @@ const app = express();
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 // Connect to mongo
-console.log('monGODB URI', MONGODB_URI);
+
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true}).then(() => {
-    //
+    console.log('mongo connected: ', MONGODB_URI);
 })
 .catch((err: Error) => {
     console.log('MongoDB connection error. Please make sure MongoDB is running. ' + err);
