@@ -6,9 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run serve",
+    "watch-ts": "tsc -w",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "serve": "node dist/server.js",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
-    "dev": "nodemon dist/server.js",
+    "watch-node": "nodemon dist/server.js",
     "postinstall": "npm run build-ts"
   },
   "author": "Vibeke Tengroth",
@@ -25,6 +28,7 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "concurrently": "^4.0.1",
     "nodemon": "^1.18.5",
     "typescript": "^3.1.4"
   }
