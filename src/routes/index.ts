@@ -1,10 +1,8 @@
 // Todo add import subroutes here and use them
 import { Router, Request, Response, NextFunction } from 'express';
+import CrudRoute from './CrudRoute';
+import Audio from '../models/audio';
 const route: Router = Router();
 
-route.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.status(200);
-    res.send('Audio Library');
-});
-
+route.use('/audio', new CrudRoute(Audio).router);
 export default route;
